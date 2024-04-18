@@ -132,7 +132,7 @@ class Tetris:
 
         # Incrementa o contador de linhas feitas e ajusta a velocidade do jogo
         self.linhas_feitas += linhas
-        if self.linhas_feitas >= 25:
+        if self.linhas_feitas >= 10:
             self.velocidade *= 1.5
             self.linhas_feitas = 0
 
