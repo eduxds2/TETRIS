@@ -33,6 +33,9 @@ cores = [
 PRETO = (0, 0, 0)
 CINZA = (128, 128, 128)
 COR_TEXTOS = (128, 0, 128)
+VERDE = (0, 255, 0)
+VERMELHO=(255, 0, 0)
+AMARELO=(255, 255, 0)
 
 class Peca:
     x = 0
@@ -177,11 +180,11 @@ pygame.display.set_caption("Tetris")
 
 # Som
 pygame.mixer.music.set_volume(0.1)
-musica_de_fundo = pygame.mixer.music.load('C:/Users/eduar/OneDrive/Área de Trabalho/TETRIS/Musicas/fundo.wav')
+musica_de_fundo = pygame.mixer.music.load('Musicas/fundo.wav')
 pygame.mixer.music.play(-1)
 
 # Som de game over
-barulho_jogo = pygame.mixer.Sound('C:/Users/eduar/OneDrive/Área de Trabalho/TETRIS/Musicas/game_over.wav')
+barulho_jogo = pygame.mixer.Sound('Musicas/game_over.wav')
 
 # Loop até o usuário clicar no botão de fechar.
 fechado = False
@@ -288,9 +291,9 @@ while not fechado:
     if selecionando_dificuldade:
         fonte = pygame.font.SysFont('Calibri', 30, True, False)
         texto_dificuldade = fonte.render("Selecione a Dificuldade:", True, CINZA)
-        texto_facil = fonte.render("Facil", True, COR_TEXTOS if dificuldade_selecionada == "facil" else PRETO)
-        texto_normal = fonte.render("Normal", True, COR_TEXTOS if dificuldade_selecionada == "normal" else PRETO)
-        texto_hard = fonte.render("Hard", True, COR_TEXTOS if dificuldade_selecionada == "hard" else PRETO)
+        texto_facil = fonte.render("Facil", True, VERDE if dificuldade_selecionada == "facil" else PRETO)
+        texto_normal = fonte.render("Normal", True, AMARELO if dificuldade_selecionada == "normal" else PRETO)
+        texto_hard = fonte.render("Dificil", True, VERMELHO if dificuldade_selecionada == "hard" else PRETO)
 
         tela.blit(texto_dificuldade, [tela.get_width() // 2 - 130, tela.get_height() // 2 - 100])
         tela.blit(texto_facil, [tela.get_width() // 2 - 40, tela.get_height() // 2])
@@ -317,7 +320,6 @@ while not fechado:
                                         jogo.y + jogo.zoom * (i + jogo.peca_atual.y) + 1,
                                         jogo.zoom - 2, jogo.zoom - 2])
 
-
         # Desenha a pontuação e linhas feitas
         fonte = pygame.font.SysFont('Calibri', 25, True, False)
         texto_pontos = fonte.render("Pontos: " + str(jogo.pontuacao), True, CINZA)
@@ -333,7 +335,7 @@ while not fechado:
             texto_sair = fonte.render("Sair (N)", True, COR_TEXTOS)
 
             # Posiciona o texto "Perdeu" no centro da tela
-.            texto_perdeu_rect = texto_perdeu.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2))
+            texto_perdeu_rect = texto_perdeu.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2))
             # Posiciona os botões "Continuar" e "Sair" abaixo do texto "Perdeu"
             texto_continuar_rect = texto_continuar.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2 + 50))
             texto_sair_rect = texto_sair.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2 + 100))
