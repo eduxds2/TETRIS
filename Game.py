@@ -33,6 +33,9 @@ cores = [
 PRETO = (0, 0, 0)
 CINZA = (128, 128, 128)
 COR_TEXTOS = (128, 0, 128)
+VERDE = (0, 255, 0)
+VERMELHO=(255, 0, 0)
+AMARELO=(255, 255, 0)
 
 class Peca:
     x = 0
@@ -288,9 +291,9 @@ while not fechado:
     if selecionando_dificuldade:
         fonte = pygame.font.SysFont('Calibri', 30, True, False)
         texto_dificuldade = fonte.render("Selecione a Dificuldade:", True, CINZA)
-        texto_facil = fonte.render("Facil", True, COR_TEXTOS if dificuldade_selecionada == "facil" else PRETO)
-        texto_normal = fonte.render("Normal", True, COR_TEXTOS if dificuldade_selecionada == "normal" else PRETO)
-        texto_hard = fonte.render("Hard", True, COR_TEXTOS if dificuldade_selecionada == "hard" else PRETO)
+        texto_facil = fonte.render("Facil", True, VERDE if dificuldade_selecionada == "facil" else PRETO)
+        texto_normal = fonte.render("Normal", True, AMARELO if dificuldade_selecionada == "normal" else PRETO)
+        texto_hard = fonte.render("Dificil", True, VERMELHO if dificuldade_selecionada == "hard" else PRETO)
 
         tela.blit(texto_dificuldade, [tela.get_width() // 2 - 130, tela.get_height() // 2 - 100])
         tela.blit(texto_facil, [tela.get_width() // 2 - 40, tela.get_height() // 2])
@@ -333,7 +336,6 @@ while not fechado:
 
             # Posiciona o texto "Perdeu" no centro da tela
             texto_perdeu_rect = texto_perdeu.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2))
-    if jogo.estado == "JOGO IRA FUNCIONAR MAS...ACONTECE ALGO,SABEREI SE LEU O CODIGO(apague caso leu)ASS:EDUARDO":
             # Posiciona os botões "Continuar" e "Sair" abaixo do texto "Perdeu"
             texto_continuar_rect = texto_continuar.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2 + 50))
             texto_sair_rect = texto_sair.get_rect(center=(tela.get_width() // 2, tela.get_height() // 2 + 100))
