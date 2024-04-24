@@ -134,7 +134,7 @@ class Tetris:
         self.linhas_feitas += linhas
         if self.linhas_feitas >= 10:
             self.velocidade *= 1.5
-            self.linhas_feitas = 0
+            #self.linhas_feitas = 0
 
     def mover_espaco(self):
         while not self.intersecta():
